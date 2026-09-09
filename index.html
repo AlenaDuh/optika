@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Оптика Профи | Салон оптики в Москве</title>
+    <title>Мир Очков | Салон оптики</title>
     
     <!-- Шрифты -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,600;14..32,700&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet" />
     
     <!-- Подключаем CSS -->
     <link rel="stylesheet" href="styles.css" />
@@ -16,9 +16,13 @@
     <!-- ===== НАВИГАЦИЯ ===== -->
     <nav class="navbar">
         <div class="container">
-            <div class="logo">Оптика<span>Профи</span></div>
+            <div class="logo">
+                <span class="logo-icon">👓</span>
+                Мир<span>Очков</span>
+            </div>
             <ul class="nav-links">
                 <li><a href="#services">Услуги</a></li>
+                <li><a href="#salons">Салоны</a></li>
                 <li><a href="#calculator">Калькулятор</a></li>
                 <li><a href="#reviews">Отзывы</a></li>
                 <li><a href="#contact">Контакты</a></li>
@@ -32,14 +36,15 @@
         <div class="container">
             <div class="hero-grid">
                 <div class="fade-in">
-                    <span class="section-label">Салон оптики в Москве</span>
+                    <span class="section-label">Сеть салонов оптики</span>
                     <h1>
-                        Идеальные очки <br />
-                        <span class="highlight">за 1 день</span>
+                        Мир <span class="highlight">ясного</span> зрения<br />
+                        в каждом городе
                     </h1>
                     <p>
-                        Профессиональная диагностика зрения, подбор линз и оправ от мировых брендов.
-                        Бесплатная регулировка и гарантия 2 года.
+                        4 салона в вашем городе. Профессиональная диагностика зрения,
+                        подбор линз и оправ от мировых брендов. Бесплатная регулировка
+                        и гарантия 2 года.
                     </p>
                     <div class="hero-buttons">
                         <a href="#contact" class="btn btn-primary">Записаться на приём</a>
@@ -48,7 +53,7 @@
                     <div class="hero-stats">
                         <div><strong>12 лет</strong><span>на рынке</span></div>
                         <div><strong>8 500+</strong><span>довольных клиентов</span></div>
-                        <div><strong>4.9 ⭐</strong><span>средний рейтинг</span></div>
+                        <div><strong>4</strong><span>салона в городе</span></div>
                     </div>
                 </div>
                 <div class="hero-icon">👓</div>
@@ -83,6 +88,50 @@
                     <span class="icon">🛠️</span>
                     <h3>Ремонт</h3>
                     <p>Замена дужек, линз, регулировка за 30 минут</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== САЛОНЫ (4 адреса) ===== -->
+    <section class="salons" id="salons">
+        <div class="container">
+            <span class="section-label">Наши салоны</span>
+            <h2 class="section-title">4 салона — всегда рядом</h2>
+            <p class="section-sub">Выберите ближайший к вам салон оптики «Мир Очков»</p>
+
+            <div class="salons-grid">
+                <div class="salon-card fade-in delay-1">
+                    <div class="salon-number">01</div>
+                    <h3>Центральный</h3>
+                    <p>📍 ул. Тверская, д. 12</p>
+                    <p>🕘 Пн–Сб: 10:00–21:00, Вс: 11:00–19:00</p>
+                    <p>📞 +7 (495) 123-45-01</p>
+                    <span class="salon-badge">Флагманский</span>
+                </div>
+                <div class="salon-card fade-in delay-2">
+                    <div class="salon-number">02</div>
+                    <h3>Северный</h3>
+                    <p>📍 ул. Ленина, д. 45</p>
+                    <p>🕘 Пн–Сб: 10:00–20:00, Вс: выходной</p>
+                    <p>📞 +7 (495) 123-45-02</p>
+                    <span class="salon-badge">Парковка</span>
+                </div>
+                <div class="salon-card fade-in delay-3">
+                    <div class="salon-number">03</div>
+                    <h3>Южный</h3>
+                    <p>📍 пр. Мира, д. 78</p>
+                    <p>🕘 Пн–Вс: 10:00–21:00</p>
+                    <p>📞 +7 (495) 123-45-03</p>
+                    <span class="salon-badge">Детский уголок</span>
+                </div>
+                <div class="salon-card fade-in delay-1">
+                    <div class="salon-number">04</div>
+                    <h3>Западный</h3>
+                    <p>📍 ул. Гагарина, д. 23</p>
+                    <p>🕘 Пн–Пт: 09:00–20:00, Сб–Вс: 10:00–18:00</p>
+                    <p>📞 +7 (495) 123-45-04</p>
+                    <span class="salon-badge">Приём по записи</span>
                 </div>
             </div>
         </div>
@@ -164,21 +213,46 @@
             <div class="contact-grid">
                 <div class="contact-info fade-in">
                     <span class="section-label">Связь</span>
-                    <h3>Ждём вас в салоне</h3>
-                    <p>📍 г. Москва, ул. Тверская, д. 12 (м. Пушкинская)</p>
-                    <p>🕘 Пн–Сб: 10:00 – 21:00, Вс: 11:00 – 19:00</p>
-                    <p>📞 +7 (495) 123-45-67</p>
-                    <p>✉️ info@optika-profi.ru</p>
+                    <h3>Запишитесь на приём</h3>
+                    <p>📞 +7 (495) 123-45-67 (единая справочная)</p>
+                    <p>✉️ info@mir-ochkov.ru</p>
+                    <p>🌐 mir-ochkov.ru</p>
+                    
+                    <div class="contact-salons">
+                        <h4>Наши салоны:</h4>
+                        <ul>
+                            <li>📍 Центральный — Тверская, 12</li>
+                            <li>📍 Северный — Ленина, 45</li>
+                            <li>📍 Южный — пр. Мира, 78</li>
+                            <li>📍 Западный — Гагарина, 23</li>
+                        </ul>
+                    </div>
+
                     <div class="parking-badge">
-                        🚗 Бесплатная парковка на 30 мин
+                        🚗 Во всех салонах бесплатная парковка
                     </div>
                 </div>
 
                 <form class="contact-form fade-in delay-2" id="orderForm">
                     <h3>Записаться на приём</h3>
-                    <input type="text" placeholder="Ваше имя" required />
-                    <input type="tel" id="phone" placeholder="+7 (___) ___-__-__" required />
-                    <textarea placeholder="Комментарий (диоптрии, бренды, пожелания)"></textarea>
+                    
+                    <label for="formName">Ваше имя</label>
+                    <input type="text" id="formName" placeholder="Иван Иванов" required />
+                    
+                    <label for="formPhone">Телефон</label>
+                    <input type="tel" id="formPhone" placeholder="+7 (___) ___-__-__" required />
+                    
+                    <label for="formSalon">Выберите салон</label>
+                    <select id="formSalon">
+                        <option value="central">Центральный (Тверская, 12)</option>
+                        <option value="north">Северный (Ленина, 45)</option>
+                        <option value="south">Южный (пр. Мира, 78)</option>
+                        <option value="west">Западный (Гагарина, 23)</option>
+                    </select>
+                    
+                    <label for="formComment">Комментарий</label>
+                    <textarea id="formComment" placeholder="Диоптрии, бренды, пожелания"></textarea>
+                    
                     <button type="submit" class="btn btn-primary">Отправить заявку</button>
                     <p class="form-note">Мы перезвоним в течение 15 минут</p>
                 </form>
@@ -189,7 +263,32 @@
     <!-- ===== ФУТЕР ===== -->
     <footer>
         <div class="container">
-            © 2026 ОптикаПрофи. Все права защищены. Сайт сделан с ❤️ для вашего зрения.
+            <div class="footer-grid">
+                <div>
+                    <div class="logo" style="font-size:20px;">
+                        <span class="logo-icon">👓</span>
+                        Мир<span>Очков</span>
+                    </div>
+                    <p style="margin-top:8px; color: var(--text-secondary);">
+                        4 салона в вашем городе
+                    </p>
+                </div>
+                <div>
+                    <h4>Навигация</h4>
+                    <a href="#services">Услуги</a>
+                    <a href="#salons">Салоны</a>
+                    <a href="#calculator">Калькулятор</a>
+                    <a href="#reviews">Отзывы</a>
+                </div>
+                <div>
+                    <h4>Контакты</h4>
+                    <a href="tel:+74951234567">+7 (495) 123-45-67</a>
+                    <a href="mailto:info@mir-ochkov.ru">info@mir-ochkov.ru</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                © 2026 Мир Очков. Все права защищены.
+            </div>
         </div>
     </footer>
 

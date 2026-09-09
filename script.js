@@ -47,28 +47,30 @@ diopterInput.addEventListener('input', function() {
 });
 
 // ===== МАСКА ТЕЛЕФОНА =====
-const phoneInput = document.getElementById('phone');
+const phoneInput = document.getElementById('formPhone');
 
-phoneInput.addEventListener('input', function(e) {
-    let raw = this.value.replace(/\D/g, '');
-    if (raw.length > 11) raw = raw.slice(0, 11);
-    
-    let formatted = '+7';
-    if (raw.length > 1) {
-        formatted += ' (' + raw.slice(1, 4);
-    }
-    if (raw.length >= 5) {
-        formatted += ') ' + raw.slice(4, 7);
-    }
-    if (raw.length >= 8) {
-        formatted += '-' + raw.slice(7, 9);
-    }
-    if (raw.length >= 10) {
-        formatted += '-' + raw.slice(9, 11);
-    }
-    
-    this.value = formatted;
-});
+if (phoneInput) {
+    phoneInput.addEventListener('input', function(e) {
+        let raw = this.value.replace(/\D/g, '');
+        if (raw.length > 11) raw = raw.slice(0, 11);
+        
+        let formatted = '+7';
+        if (raw.length > 1) {
+            formatted += ' (' + raw.slice(1, 4);
+        }
+        if (raw.length >= 5) {
+            formatted += ') ' + raw.slice(4, 7);
+        }
+        if (raw.length >= 8) {
+            formatted += '-' + raw.slice(7, 9);
+        }
+        if (raw.length >= 10) {
+            formatted += '-' + raw.slice(9, 11);
+        }
+        
+        this.value = formatted;
+    });
+}
 
 // ===== ОТПРАВКА ФОРМЫ (ЗАГЛУШКА) =====
 const form = document.getElementById('orderForm');
@@ -76,14 +78,22 @@ const form = document.getElementById('orderForm');
 form.addEventListener('submit', function(e) {
     e.preventDefault();
     
-    // Проверка телефона (минимальная)
-    const phone = document.getElementById('phone').value;
+    // Проверка телефона
+    const phone = document.getElementById('formPhone').value;
     if (phone.replace(/\D/g, '').length < 10) {
         alert('⚠️ Пожалуйста, введите корректный номер телефона.');
         return;
     }
     
-    alert('✅ Спасибо! Мы свяжемся с вами в ближайшее время.');
+    // Собираем данные
+    const name = document.getElementById('formName').value;
+    const salon = document.getElementById('formSalon');
+    const salonText = salon.options[salon.selectedIndex].text;
+    const comment = document.getElementById('formComment').value;
+    
+    const message = `✅ Новая заявка!\n\nИмя: ${name}\nТелефон: ${phone}\nСалон: ${salonText}\nКомментарий: ${comment || '—'}`;
+    
+    alert(message + '\n\nСпасибо! Мы свяжемся с вами в ближайшее время.');
     
     // Сброс формы
     this.reset();
@@ -94,9 +104,6 @@ form.addEventListener('submit', function(e) {
     lensSelect.value = 'thin';
     coatingSelect.value = 'none';
     updatePrice();
-    
-    // Сброс телефона
-    phoneInput.value = '';
 });
 
 // ===== ИНИЦИАЛИЗАЦИЯ =====
@@ -112,6 +119,6 @@ const observer = new IntersectionObserver((entries) => {
             entry.target.style.transform = 'translateY(0)';
         }
     });
-}, { threshold: 0.2 });
+}, { threshold: 0.15 });
 
 cards.forEach(card => observer.observe(card));
