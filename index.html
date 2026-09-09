@@ -16,18 +16,29 @@
     <!-- ===== НАВИГАЦИЯ ===== -->
     <nav class="navbar">
         <div class="container">
+            <!-- Бургер-кнопка (слева) -->
+            <button class="burger" id="burgerBtn" aria-label="Открыть меню">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            
             <div class="logo">
                 <span class="logo-icon">👓</span>
                 Мир<span>Очков</span>
             </div>
-            <ul class="nav-links">
+            
+            <ul class="nav-links" id="navLinks">
                 <li><a href="#services">Услуги</a></li>
                 <li><a href="#salons">Салоны</a></li>
-                <li><a href="#calculator">Калькулятор</a></li>
+                <li><a href="#map">Карта</a></li>
                 <li><a href="#reviews">Отзывы</a></li>
                 <li><a href="#contact">Контакты</a></li>
+                <li class="mobile-phone"><a href="#contact" class="btn btn-primary nav-phone-mobile">📞 Записаться</a></li>
             </ul>
-            <a href="#contact" class="nav-phone">📞 Записаться</a>
+            
+            <!-- Кнопка на десктопе -->
+            <a href="#contact" class="nav-phone desktop-phone">📞 Записаться</a>
         </div>
     </nav>
 
@@ -39,21 +50,21 @@
                     <span class="section-label">Сеть салонов оптики</span>
                     <h1>
                         Мир <span class="highlight">ясного</span> зрения<br />
-                        в каждом городе
+                        в каждом районе
                     </h1>
                     <p>
-                        4 салона в вашем городе. Профессиональная диагностика зрения,
+                        4 салона в Красноярске. Профессиональная диагностика зрения,
                         подбор линз и оправ от мировых брендов. Бесплатная регулировка
                         и гарантия 2 года.
                     </p>
                     <div class="hero-buttons">
                         <a href="#contact" class="btn btn-primary">Записаться на приём</a>
-                        <a href="#calculator" class="btn btn-outline">Рассчитать стоимость</a>
+                        <a href="#salons" class="btn btn-outline">Наши салоны</a>
                     </div>
                     <div class="hero-stats">
-                        <div><strong>12 лет</strong><span>на рынке</span></div>
-                        <div><strong>8 500+</strong><span>довольных клиентов</span></div>
+                        <div><strong>22 года</strong><span>на рынке</span></div>
                         <div><strong>4</strong><span>салона в городе</span></div>
+                        <div><strong>Бесплатно</strong><span>проверка зрения при заказе</span></div>
                     </div>
                 </div>
                 <div class="hero-icon">👓</div>
@@ -65,29 +76,28 @@
     <section class="services" id="services">
         <div class="container">
             <span class="section-label">Что мы предлагаем</span>
-            <h2 class="section-title">Всё для вашего зрения</h2>
-            <p class="section-sub">Современное оборудование и опытные оптометристы</p>
+            <h2 class="section-title">Наши услуги</h2>
 
             <div class="services-grid">
                 <div class="service-card fade-in delay-1">
-                    <span class="icon">🔬</span>
-                    <h3>Диагностика</h3>
-                    <p>Компьютерная проверка зрения на топ-оборудовании</p>
+                    <span class="icon">👁️</span>
+                    <h3>Проверка зрения</h3>
+                    <p>Бесплатно при заказе очков. Современное оборудование, опытные специалисты</p>
                 </div>
                 <div class="service-card fade-in delay-2">
                     <span class="icon">🕶️</span>
                     <h3>Подбор оправ</h3>
-                    <p>Более 500 моделей: Ray-Ban, Polaroid, местные бренды</p>
+                    <p>Большой выбор оправ и линз. Поможем подобрать идеальный вариант</p>
                 </div>
                 <div class="service-card fade-in delay-3">
-                    <span class="icon">💎</span>
-                    <h3>Линзы любого типа</h3>
-                    <p>Стандарт, тонкие, фотохром, поляризация</p>
+                    <span class="icon">🔧</span>
+                    <h3>Ремонт очков</h3>
+                    <p>Замена дужек, линз, носоупоров. Любой ремонт в кратчайшие сроки</p>
                 </div>
                 <div class="service-card fade-in delay-1">
-                    <span class="icon">🛠️</span>
-                    <h3>Ремонт</h3>
-                    <p>Замена дужек, линз, регулировка за 30 минут</p>
+                    <span class="icon">👓</span>
+                    <h3>Очки на заказ</h3>
+                    <p>Собственный мастер. Изготовление очков любой сложности</p>
                 </div>
             </div>
         </div>
@@ -102,80 +112,62 @@
 
             <div class="salons-grid">
                 <div class="salon-card fade-in delay-1">
-                    <div class="salon-number">01</div>
-                    <h3>Центральный</h3>
-                    <p>📍 ул. Тверская, д. 12</p>
-                    <p>🕘 Пн–Сб: 10:00–21:00, Вс: 11:00–19:00</p>
-                    <p>📞 +7 (495) 123-45-01</p>
-                    <span class="salon-badge">Флагманский</span>
+                    <h3>Ленинский район</h3>
+                    <p class="address">📍 ул. Мичурина, 9 (1 этаж)</p>
+                    <p class="schedule">🕘 Пн–Пт: 10:00–19:00, Сб–Вс: 10:00–18:00</p>
+                    <div class="phones">
+                        <a href="tel:+79233550528">📞 +7-923-355-05-28</a>
+                    </div>
                 </div>
+
                 <div class="salon-card fade-in delay-2">
-                    <div class="salon-number">02</div>
-                    <h3>Северный</h3>
-                    <p>📍 ул. Ленина, д. 45</p>
-                    <p>🕘 Пн–Сб: 10:00–20:00, Вс: выходной</p>
-                    <p>📞 +7 (495) 123-45-02</p>
-                    <span class="salon-badge">Парковка</span>
+                    <h3>Железнодорожный район</h3>
+                    <p class="address">📍 ул. Калинина, 8 (1 этаж)</p>
+                    <p class="schedule">🕘 Пн–Пт: 10:00–19:00, Сб–Вс: 10:00–18:00</p>
+                    <div class="phones">
+                        <a href="tel:+79233550528">📞 +7-923-355-05-28</a>
+                        <a href="tel:+79504312382">📞 +7-950-431-23-82</a>
+                    </div>
                 </div>
+
                 <div class="salon-card fade-in delay-3">
-                    <div class="salon-number">03</div>
-                    <h3>Южный</h3>
-                    <p>📍 пр. Мира, д. 78</p>
-                    <p>🕘 Пн–Вс: 10:00–21:00</p>
-                    <p>📞 +7 (495) 123-45-03</p>
-                    <span class="salon-badge">Детский уголок</span>
+                    <h3>Кировский район</h3>
+                    <p class="address">📍 ул. Академика Павлова, 41 (1 этаж, Магнит)</p>
+                    <p class="schedule">🕘 Вт–Пт: 10:00–19:00, Сб: 10:00–18:00</p>
+                    <p class="schedule" style="color:#e74c3c;">⚠️ Пн и Вс — выходной</p>
+                    <div class="phones">
+                        <a href="tel:+79233550528">📞 +7-923-355-05-28</a>
+                        <a href="tel:+79233543374">📞 +7-923-354-33-74</a>
+                    </div>
                 </div>
+
                 <div class="salon-card fade-in delay-1">
-                    <div class="salon-number">04</div>
-                    <h3>Западный</h3>
-                    <p>📍 ул. Гагарина, д. 23</p>
-                    <p>🕘 Пн–Пт: 09:00–20:00, Сб–Вс: 10:00–18:00</p>
-                    <p>📞 +7 (495) 123-45-04</p>
-                    <span class="salon-badge">Приём по записи</span>
+                    <h3>Ленинский район</h3>
+                    <p class="address">📍 ул. Шевченко, 28а (м-н Черёмушки)</p>
+                    <p class="schedule">🕘 Пн–Пт: 10:00–19:00, Сб–Вс: 10:00–18:00</p>
+                    <div class="phones">
+                        <a href="tel:+79233550528">📞 +7-923-355-05-28</a>
+                        <a href="tel:+79080186792">📞 +7-908-018-67-92</a>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- ===== КАЛЬКУЛЯТОР ===== -->
-    <section class="calculator" id="calculator">
+    <!-- ===== КАРТА ===== -->
+    <section class="map-section" id="map">
         <div class="container">
-            <span class="section-label">Онлайн-калькулятор</span>
-            <h2 class="section-title">Примерная стоимость очков</h2>
-            <p class="section-sub">Выберите параметры, и мы покажем цену со скидкой 10%</p>
+            <span class="section-label">Наши салоны на карте</span>
+            <h2 class="section-title">Как нас найти</h2>
+            <p class="section-sub">Все 4 салона «Мир Очков» в Красноярске</p>
 
-            <div class="calc-wrapper">
-                <div>
-                    <div class="calc-group">
-                        <label for="lensType">Тип линз</label>
-                        <select id="lensType">
-                            <option value="standard">Стандартные (1.5)</option>
-                            <option value="thin" selected>Тонкие (1.6) — популярные</option>
-                            <option value="ultrathin">Супер-тонкие (1.67)</option>
-                            <option value="photochrom">Фотохромные (хамелеон)</option>
-                        </select>
-                    </div>
-                    <div class="calc-group">
-                        <label for="coating">Покрытие</label>
-                        <select id="coating">
-                            <option value="none">Без покрытия</option>
-                            <option value="antireflect">Антиблик (+500 ₽)</option>
-                            <option value="scratch">Упрочняющее (+300 ₽)</option>
-                            <option value="full">Полный пакет (+1000 ₽)</option>
-                        </select>
-                    </div>
-                    <div class="calc-group">
-                        <label for="diopter">Сила диоптрий (по модулю)</label>
-                        <input type="range" id="diopter" min="0" max="8" step="0.25" value="2" />
-                        <span id="diopterValue" class="diopter-value">2.00</span>
-                    </div>
-                </div>
-
-                <div class="calc-result">
-                    <span class="calc-label">Итоговая стоимость</span>
-                    <div class="price" id="priceDisplay">7 200 ₽</div>
-                    <span class="note">* Цена может меняться при выборе оправы</span>
-                    <a href="#contact" class="btn btn-primary calc-btn">Получить консультацию</a>
+            <div class="map-wrapper">
+                <!-- СЮДА ВСТАВЬТЕ КОД КАРТЫ ОТ ЯНДЕКС ИЛИ GOOGLE -->
+                <div class="map-placeholder">
+                    <p>🗺️ Здесь будет карта с отметками всех 4 салонов</p>
+                    <p style="font-size:14px; color: var(--text-secondary); margin-top:8px;">
+                        Вставьте код iframe от Яндекс.Карт или Google Maps
+                    </p>
                 </div>
             </div>
         </div>
@@ -190,18 +182,18 @@
             <div class="reviews-grid">
                 <div class="review-card fade-in delay-1">
                     <div class="stars">★★★★★</div>
-                    <p>«Очень внимательный подход. Подобрали линзы, теперь вижу лучше, чем в старых очках. Спасибо!»</p>
-                    <div class="author">Анна К., 34 года</div>
+                    <p>«Очень, очень хорошая оптика!!! Мне всегда тяжело подобрать очки, есть минус на оба глаза и астегматизм, проблема была в том что вечером ни чего не вижу за рулём. Обратилась сюда по совету мамы. Целый час девушка мне подбирала, все учитывала, плюс я ещё попросила антиблик стекла, предупредили что через неделю будут готовы, сделали через 4 дня! Я очень довольна! За рулём теперь вообще дискомфорта нет! Советую, и ещё раз советую!»</p>
+                    <div class="author">Марина Марина</div>
                 </div>
                 <div class="review-card fade-in delay-2">
                     <div class="stars">★★★★★</div>
-                    <p>«Срочно понадобились очки для вождения. Сделали за 2 часа с поляризацией. Отлично!»</p>
-                    <div class="author">Михаил Т., 41 год</div>
+                    <p>«Вежливые, приветливые продавцы. Всегда помогут сделать правильный выбор. Всей семьей покупаем очки только в этой оптике!!!»</p>
+                    <div class="author">Мария Р.</div>
                 </div>
                 <div class="review-card fade-in delay-3">
                     <div class="stars">★★★★★</div>
-                    <p>«Ребёнку подобрали оправу, очень прочная. И дали гарантию на случай, если сломает.»</p>
-                    <div class="author">Екатерина В.</div>
+                    <p>«Спасибо огромное мастеру за работу и за то, что смог поместить стёкла в мою оправу! Поистине золотые руки 🙏🏼 Благодарю также женщину, работницу оптики, за консультацию»</p>
+                    <div class="author">Полина Волкова</div>
                 </div>
             </div>
         </div>
@@ -214,22 +206,17 @@
                 <div class="contact-info fade-in">
                     <span class="section-label">Связь</span>
                     <h3>Запишитесь на приём</h3>
-                    <p>📞 +7 (495) 123-45-67 (единая справочная)</p>
-                    <p>✉️ info@mir-ochkov.ru</p>
-                    <p>🌐 mir-ochkov.ru</p>
+                    <p class="contact-phone">📞 +7-923-355-05-28</p>
+                    <p class="contact-phone">✉️ mir-ochkov@mail.ru</p>
                     
                     <div class="contact-salons">
-                        <h4>Наши салоны:</h4>
+                        <h4>Наши салоны в Красноярске:</h4>
                         <ul>
-                            <li>📍 Центральный — Тверская, 12</li>
-                            <li>📍 Северный — Ленина, 45</li>
-                            <li>📍 Южный — пр. Мира, 78</li>
-                            <li>📍 Западный — Гагарина, 23</li>
+                            <li>📍 Ленинский р-н, ул. Мичурина, 9</li>
+                            <li>📍 Железнодорожный р-н, ул. Калинина, 8</li>
+                            <li>📍 Кировский р-н, ул. Академика Павлова, 41</li>
+                            <li>📍 Ленинский р-н, ул. Шевченко, 28а</li>
                         </ul>
-                    </div>
-
-                    <div class="parking-badge">
-                        🚗 Во всех салонах бесплатная парковка
                     </div>
                 </div>
 
@@ -244,14 +231,14 @@
                     
                     <label for="formSalon">Выберите салон</label>
                     <select id="formSalon">
-                        <option value="central">Центральный (Тверская, 12)</option>
-                        <option value="north">Северный (Ленина, 45)</option>
-                        <option value="south">Южный (пр. Мира, 78)</option>
-                        <option value="west">Западный (Гагарина, 23)</option>
+                        <option value="lenin1">Ленинский р-н, ул. Мичурина, 9</option>
+                        <option value="railway">Железнодорожный р-н, ул. Калинина, 8</option>
+                        <option value="kirov">Кировский р-н, ул. Академика Павлова, 41</option>
+                        <option value="lenin2">Ленинский р-н, ул. Шевченко, 28а</option>
                     </select>
                     
                     <label for="formComment">Комментарий</label>
-                    <textarea id="formComment" placeholder="Диоптрии, бренды, пожелания"></textarea>
+                    <textarea id="formComment" placeholder="Пожелания, вопросы, особенности"></textarea>
                     
                     <button type="submit" class="btn btn-primary">Отправить заявку</button>
                     <p class="form-note">Мы перезвоним в течение 15 минут</p>
@@ -269,25 +256,26 @@
                         <span class="logo-icon">👓</span>
                         Мир<span>Очков</span>
                     </div>
-                    <p style="margin-top:8px; color: var(--text-secondary);">
-                        4 салона в вашем городе
+                    <p style="margin-top:8px; color: #aaa;">
+                        4 салона в Красноярске
                     </p>
                 </div>
                 <div>
                     <h4>Навигация</h4>
                     <a href="#services">Услуги</a>
                     <a href="#salons">Салоны</a>
-                    <a href="#calculator">Калькулятор</a>
+                    <a href="#map">Карта</a>
                     <a href="#reviews">Отзывы</a>
+                    <a href="#contact">Контакты</a>
                 </div>
                 <div>
                     <h4>Контакты</h4>
-                    <a href="tel:+74951234567">+7 (495) 123-45-67</a>
-                    <a href="mailto:info@mir-ochkov.ru">info@mir-ochkov.ru</a>
+                    <a href="tel:+79233550528">+7-923-355-05-28</a>
+                    <a href="mailto:mir-ochkov@mail.ru">mir-ochkov@mail.ru</a>
                 </div>
             </div>
             <div class="footer-bottom">
-                © 2026 Мир Очков. Все права защищены.
+                © 2004–2026 Мир Очков. Все права защищены.
             </div>
         </div>
     </footer>

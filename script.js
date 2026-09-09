@@ -1,49 +1,29 @@
-// ===== КАЛЬКУЛЯТОР ЦЕНЫ =====
-const lensSelect = document.getElementById('lensType');
-const coatingSelect = document.getElementById('coating');
-const diopterInput = document.getElementById('diopter');
-const diopterValue = document.getElementById('diopterValue');
-const priceDisplay = document.getElementById('priceDisplay');
+// ===== БУРГЕР-МЕНЮ =====
+const burgerBtn = document.getElementById('burgerBtn');
+const navLinks = document.getElementById('navLinks');
 
-function updatePrice() {
-    // Базовая цена
-    let base = 4500;
+// Создаём оверлей
+const overlay = document.createElement('div');
+overlay.className = 'overlay';
+document.body.appendChild(overlay);
 
-    // Наценка за тип линз
-    const lensMap = {
-        'standard': 0,
-        'thin': 1500,
-        'ultrathin': 3500,
-        'photochrom': 5000
-    };
-    base += lensMap[lensSelect.value] || 0;
-
-    // Наценка за покрытие
-    const coatingMap = {
-        'none': 0,
-        'antireflect': 500,
-        'scratch': 300,
-        'full': 1000
-    };
-    base += coatingMap[coatingSelect.value] || 0;
-
-    // Наценка за сложные диоптрии (> 4)
-    const d = parseFloat(diopterInput.value);
-    if (d > 4) base += 800;
-
-    // Скидка 10% для онлайн-калькулятора
-    const finalPrice = Math.round(base * 0.9);
-
-    priceDisplay.textContent = finalPrice.toLocaleString() + ' ₽';
+function toggleMenu() {
+    burgerBtn.classList.toggle('active');
+    navLinks.classList.toggle('active');
+    overlay.classList.toggle('active');
+    document.body.style.overflow = navLinks.classList.contains('active') ? 'hidden' : '';
 }
 
-// События для обновления цены
-lensSelect.addEventListener('change', updatePrice);
-coatingSelect.addEventListener('change', updatePrice);
+burgerBtn.addEventListener('click', toggleMenu);
+overlay.addEventListener('click', toggleMenu);
 
-diopterInput.addEventListener('input', function() {
-    diopterValue.textContent = parseFloat(this.value).toFixed(2);
-    updatePrice();
+// Закрываем меню при клике на ссылку
+document.querySelectorAll('.nav-links a').forEach(link => {
+    link.addEventListener('click', () => {
+        if (navLinks.classList.contains('active')) {
+            toggleMenu();
+        }
+    });
 });
 
 // ===== МАСКА ТЕЛЕФОНА =====
@@ -72,20 +52,18 @@ if (phoneInput) {
     });
 }
 
-// ===== ОТПРАВКА ФОРМЫ (ЗАГЛУШКА) =====
+// ===== ОТПРАВКА ФОРМЫ =====
 const form = document.getElementById('orderForm');
 
 form.addEventListener('submit', function(e) {
     e.preventDefault();
     
-    // Проверка телефона
     const phone = document.getElementById('formPhone').value;
     if (phone.replace(/\D/g, '').length < 10) {
         alert('⚠️ Пожалуйста, введите корректный номер телефона.');
         return;
     }
     
-    // Собираем данные
     const name = document.getElementById('formName').value;
     const salon = document.getElementById('formSalon');
     const salonText = salon.options[salon.selectedIndex].text;
@@ -94,22 +72,10 @@ form.addEventListener('submit', function(e) {
     const message = `✅ Новая заявка!\n\nИмя: ${name}\nТелефон: ${phone}\nСалон: ${salonText}\nКомментарий: ${comment || '—'}`;
     
     alert(message + '\n\nСпасибо! Мы свяжемся с вами в ближайшее время.');
-    
-    // Сброс формы
     this.reset();
-    
-    // Сброс калькулятора к значениям по умолчанию
-    diopterInput.value = 2;
-    diopterValue.textContent = '2.00';
-    lensSelect.value = 'thin';
-    coatingSelect.value = 'none';
-    updatePrice();
 });
 
-// ===== ИНИЦИАЛИЗАЦИЯ =====
-updatePrice();
-
-// ===== INTERSECTION OBSERVER ДЛЯ АНИМАЦИЙ =====
+// ===== АНИМАЦИИ =====
 const cards = document.querySelectorAll('.fade-in');
 
 const observer = new IntersectionObserver((entries) => {
