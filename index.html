@@ -1,9 +1,199 @@
 <!DOCTYPE html>
-<html>
+<html lang="ru">
 <head>
-    <title>Оптика</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Оптика Профи | Салон оптики в Москве</title>
+    
+    <!-- Шрифты -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,600;14..32,700&display=swap" rel="stylesheet" />
+    
+    <!-- Подключаем CSS -->
+    <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-    <h1>Добро пожаловать в оптику!</h1>
+
+    <!-- ===== НАВИГАЦИЯ ===== -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="logo">Оптика<span>Профи</span></div>
+            <ul class="nav-links">
+                <li><a href="#services">Услуги</a></li>
+                <li><a href="#calculator">Калькулятор</a></li>
+                <li><a href="#reviews">Отзывы</a></li>
+                <li><a href="#contact">Контакты</a></li>
+            </ul>
+            <a href="#contact" class="nav-phone">📞 Записаться</a>
+        </div>
+    </nav>
+
+    <!-- ===== ГЕРОЙ ===== -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-grid">
+                <div class="fade-in">
+                    <span class="section-label">Салон оптики в Москве</span>
+                    <h1>
+                        Идеальные очки <br />
+                        <span class="highlight">за 1 день</span>
+                    </h1>
+                    <p>
+                        Профессиональная диагностика зрения, подбор линз и оправ от мировых брендов.
+                        Бесплатная регулировка и гарантия 2 года.
+                    </p>
+                    <div class="hero-buttons">
+                        <a href="#contact" class="btn btn-primary">Записаться на приём</a>
+                        <a href="#calculator" class="btn btn-outline">Рассчитать стоимость</a>
+                    </div>
+                    <div class="hero-stats">
+                        <div><strong>12 лет</strong><span>на рынке</span></div>
+                        <div><strong>8 500+</strong><span>довольных клиентов</span></div>
+                        <div><strong>4.9 ⭐</strong><span>средний рейтинг</span></div>
+                    </div>
+                </div>
+                <div class="hero-icon">👓</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== УСЛУГИ ===== -->
+    <section class="services" id="services">
+        <div class="container">
+            <span class="section-label">Что мы предлагаем</span>
+            <h2 class="section-title">Всё для вашего зрения</h2>
+            <p class="section-sub">Современное оборудование и опытные оптометристы</p>
+
+            <div class="services-grid">
+                <div class="service-card fade-in delay-1">
+                    <span class="icon">🔬</span>
+                    <h3>Диагностика</h3>
+                    <p>Компьютерная проверка зрения на топ-оборудовании</p>
+                </div>
+                <div class="service-card fade-in delay-2">
+                    <span class="icon">🕶️</span>
+                    <h3>Подбор оправ</h3>
+                    <p>Более 500 моделей: Ray-Ban, Polaroid, местные бренды</p>
+                </div>
+                <div class="service-card fade-in delay-3">
+                    <span class="icon">💎</span>
+                    <h3>Линзы любого типа</h3>
+                    <p>Стандарт, тонкие, фотохром, поляризация</p>
+                </div>
+                <div class="service-card fade-in delay-1">
+                    <span class="icon">🛠️</span>
+                    <h3>Ремонт</h3>
+                    <p>Замена дужек, линз, регулировка за 30 минут</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== КАЛЬКУЛЯТОР ===== -->
+    <section class="calculator" id="calculator">
+        <div class="container">
+            <span class="section-label">Онлайн-калькулятор</span>
+            <h2 class="section-title">Примерная стоимость очков</h2>
+            <p class="section-sub">Выберите параметры, и мы покажем цену со скидкой 10%</p>
+
+            <div class="calc-wrapper">
+                <div>
+                    <div class="calc-group">
+                        <label for="lensType">Тип линз</label>
+                        <select id="lensType">
+                            <option value="standard">Стандартные (1.5)</option>
+                            <option value="thin" selected>Тонкие (1.6) — популярные</option>
+                            <option value="ultrathin">Супер-тонкие (1.67)</option>
+                            <option value="photochrom">Фотохромные (хамелеон)</option>
+                        </select>
+                    </div>
+                    <div class="calc-group">
+                        <label for="coating">Покрытие</label>
+                        <select id="coating">
+                            <option value="none">Без покрытия</option>
+                            <option value="antireflect">Антиблик (+500 ₽)</option>
+                            <option value="scratch">Упрочняющее (+300 ₽)</option>
+                            <option value="full">Полный пакет (+1000 ₽)</option>
+                        </select>
+                    </div>
+                    <div class="calc-group">
+                        <label for="diopter">Сила диоптрий (по модулю)</label>
+                        <input type="range" id="diopter" min="0" max="8" step="0.25" value="2" />
+                        <span id="diopterValue" class="diopter-value">2.00</span>
+                    </div>
+                </div>
+
+                <div class="calc-result">
+                    <span class="calc-label">Итоговая стоимость</span>
+                    <div class="price" id="priceDisplay">7 200 ₽</div>
+                    <span class="note">* Цена может меняться при выборе оправы</span>
+                    <a href="#contact" class="btn btn-primary calc-btn">Получить консультацию</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== ОТЗЫВЫ ===== -->
+    <section class="reviews" id="reviews">
+        <div class="container">
+            <span class="section-label">Клиенты говорят</span>
+            <h2 class="section-title">Реальные отзывы</h2>
+
+            <div class="reviews-grid">
+                <div class="review-card fade-in delay-1">
+                    <div class="stars">★★★★★</div>
+                    <p>«Очень внимательный подход. Подобрали линзы, теперь вижу лучше, чем в старых очках. Спасибо!»</p>
+                    <div class="author">Анна К., 34 года</div>
+                </div>
+                <div class="review-card fade-in delay-2">
+                    <div class="stars">★★★★★</div>
+                    <p>«Срочно понадобились очки для вождения. Сделали за 2 часа с поляризацией. Отлично!»</p>
+                    <div class="author">Михаил Т., 41 год</div>
+                </div>
+                <div class="review-card fade-in delay-3">
+                    <div class="stars">★★★★★</div>
+                    <p>«Ребёнку подобрали оправу, очень прочная. И дали гарантию на случай, если сломает.»</p>
+                    <div class="author">Екатерина В.</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== КОНТАКТЫ + ФОРМА ===== -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <div class="contact-grid">
+                <div class="contact-info fade-in">
+                    <span class="section-label">Связь</span>
+                    <h3>Ждём вас в салоне</h3>
+                    <p>📍 г. Москва, ул. Тверская, д. 12 (м. Пушкинская)</p>
+                    <p>🕘 Пн–Сб: 10:00 – 21:00, Вс: 11:00 – 19:00</p>
+                    <p>📞 +7 (495) 123-45-67</p>
+                    <p>✉️ info@optika-profi.ru</p>
+                    <div class="parking-badge">
+                        🚗 Бесплатная парковка на 30 мин
+                    </div>
+                </div>
+
+                <form class="contact-form fade-in delay-2" id="orderForm">
+                    <h3>Записаться на приём</h3>
+                    <input type="text" placeholder="Ваше имя" required />
+                    <input type="tel" id="phone" placeholder="+7 (___) ___-__-__" required />
+                    <textarea placeholder="Комментарий (диоптрии, бренды, пожелания)"></textarea>
+                    <button type="submit" class="btn btn-primary">Отправить заявку</button>
+                    <p class="form-note">Мы перезвоним в течение 15 минут</p>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== ФУТЕР ===== -->
+    <footer>
+        <div class="container">
+            © 2026 ОптикаПрофи. Все права защищены. Сайт сделан с ❤️ для вашего зрения.
+        </div>
+    </footer>
+
+    <!-- Подключаем JavaScript -->
+    <script src="script.js"></script>
 </body>
 </html>
