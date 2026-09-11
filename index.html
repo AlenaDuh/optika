@@ -3,23 +3,85 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Мир Очков | Салон оптики</title>
-    
+    <title>Мир Очков | Салон оптики в Красноярске</title>
+    <meta name="description" content="Мир Очков — сеть из 4 салонов оптики в Красноярске. Диагностика зрения, подбор оправ и линз, изготовление очков, сервис и ремонт." />
+    <meta name="theme-color" content="#f5b342" />
+
+    <meta property="og:title" content="Мир Очков | Салон оптики в Красноярске" />
+    <meta property="og:description" content="Диагностика зрения, подбор оправ и линз, изготовление очков и сервис в 4 салонах Красноярска." />
+    <meta property="og:type" content="website" />
+
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>👓</text></svg>" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet" />
+
     <link rel="stylesheet" href="styles.css" />
+
+    <!-- ✅ Schema.org — структурированные данные для Google -->
+    <script type="application/ld+json">
+        {
+        "@context": "https://schema.org",
+        "@type": "Optician",
+        "name": "Мир Очков",
+        "url": "https://ваш-домен.ru",
+        "image": "https://ваш-домен.ru/logo.png",
+        "telephone": "+7-923-355-05-28",
+        "email": "mir-ochkov@mail.ru",
+        "priceRange": "₽₽",
+        "address": [
+            {
+            "@type": "PostalAddress",
+            "streetAddress": "ул. Мичурина, 9",
+            "addressLocality": "Красноярск",
+            "addressCountry": "RU"
+            },
+            {
+            "@type": "PostalAddress",
+            "streetAddress": "ул. Калинина, 8",
+            "addressLocality": "Красноярск",
+            "addressCountry": "RU"
+            },
+            {
+            "@type": "PostalAddress",
+            "streetAddress": "ул. Академика Павлова, 41",
+            "addressLocality": "Красноярск",
+            "addressCountry": "RU"
+            },
+            {
+            "@type": "PostalAddress",
+            "streetAddress": "ул. Шевченко, 28а",
+            "addressLocality": "Красноярск",
+            "addressCountry": "RU"
+            }
+        ],
+        "openingHoursSpecification": [
+            {
+            "@type": "OpeningHoursSpecification",
+            "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+            "opens": "10:00",
+            "closes": "19:00"
+            },
+            {
+            "@type": "OpeningHoursSpecification",
+            "dayOfWeek": ["Saturday", "Sunday"],
+            "opens": "10:00",
+            "closes": "18:00"
+            }
+        ]
+        }
+    </script>
 </head>
 <body>
 
     <!-- ===== НАВИГАЦИЯ ===== -->
     <nav class="navbar">
         <div class="container">
-            <!-- Логотип (слева на десктопе, по центру на мобильных) -->
             <div class="logo">
                 <span class="logo-icon">👓</span>
                 Мир<span>Очков</span>
             </div>
-
-            <!-- Навигация (справа на десктопе, шторка слева на мобильных) -->
             <ul class="nav-links" id="navLinks">
                 <li><a href="#services">Услуги</a></li>
                 <li><a href="#salons">Салоны</a></li>
@@ -30,11 +92,10 @@
                     <a href="#contact" class="nav-phone-mobile">📞 Записаться</a>
                 </li>
             </ul>
-
-            <!-- Правая часть: кнопка (десктоп) + бургер (мобильный) -->
             <div class="nav-right">
                 <a href="#contact" class="nav-phone desktop-phone">📞 Записаться</a>
-                <button class="burger" id="burgerBtn" aria-label="Открыть меню">
+                <button class="burger" id="burgerBtn" type="button"
+                        aria-label="Открыть меню" aria-expanded="false" aria-controls="navLinks">
                     <span></span>
                     <span></span>
                     <span></span>
@@ -47,7 +108,7 @@
     <section class="hero">
         <div class="container">
             <div class="hero-grid">
-                <div class="fade-in">
+                <div>
                     <span class="section-label">Сеть салонов оптики</span>
                     <h1>
                         Мир <span class="highlight">ясного</span> зрения<br />
@@ -63,56 +124,64 @@
                         <a href="#salons" class="btn btn-outline">Наши салоны</a>
                     </div>
                     <div class="hero-stats">
-                        <div><strong>22 года</strong><span>на рынке</span></div>
-                        <div><strong>4</strong><span>салона в городе</span></div>
+                        <div>
+                            <strong>22 года</strong>
+                            <span>на рынке</span>
+                        </div>
+                        <div>
+                            <strong>4</strong>
+                            <span>салона в городе</span>
+                        </div>
                     </div>
                 </div>
-                <div class="hero-icon">👓</div>
+                <div class="hero-icon" aria-hidden="true">👓</div>
             </div>
         </div>
     </section>
 
     <!-- ===== УСЛУГИ ===== -->
-        <!-- ===== УСЛУГИ ===== -->
-    <section class="services" id="services">
+    <section class="services" id="services" aria-labelledby="services-title">
         <div class="container">
             <span class="section-label">Что мы предлагаем</span>
-            <h2 class="section-title">Наши услуги</h2>
-
+            <h2 class="section-title" id="services-title">Наши услуги</h2>
             <div class="services-grid">
-                <div class="service-card fade-in delay-1">
+                <div class="service-card">
                     <span class="icon">👁️</span>
                     <h3>Диагностика зрения</h3>
                     <p>Профессиональная проверка на современном оборудовании. Бесплатно при заказе очков.</p>
                 </div>
-                <div class="service-card fade-in delay-2">
+                <div class="service-card">
                     <span class="icon">🕶️</span>
                     <h3>Подбор оправ и линз</h3>
-                    <p>Большой выбор оправ и линз. Поможем подобрать идеальный вариант</p>
+                    <p>Большой выбор оправ и линз. Поможем подобрать идеальный вариант.</p>
                 </div>
-                <div class="service-card fade-in delay-3">
+                <div class="service-card">
                     <span class="icon">🔧</span>
                     <h3>Сервис и ремонт</h3>
-                    <p>Замена дужек, линз, носоупоров. Любой ремонт в кратчайшие сроки</p>
+                    <p>Замена дужек, линз, носоупоров. Любой ремонт в кратчайшие сроки.</p>
                 </div>
-                <div class="service-card fade-in delay-1">
+                <div class="service-card">
                     <span class="icon">👓</span>
                     <h3>Изготовление очков</h3>
-                    <p>Собственное производство полного цикла. Сложные рецепты, астигматизм, высокие диоптрии. Сделаем то, что не могут сделать в обычных салонах.</p>
+                    <p>
+                        Собственное производство полного цикла. Сложные рецепты,
+                        астигматизм, высокие диоптрии. Сделаем то, что не могут
+                        сделать в обычных салонах.
+                    </p>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- ===== САЛОНЫ ===== -->
-    <section class="salons" id="salons">
+    <section class="salons" id="salons" aria-labelledby="salons-title">
         <div class="container">
             <span class="section-label">Наши салоны</span>
-            <h2 class="section-title">4 салона — всегда рядом</h2>
+            <h2 class="section-title" id="salons-title">4 салона — всегда рядом</h2>
             <p class="section-sub">Выберите ближайший к вам салон оптики «Мир Очков»</p>
 
             <div class="salons-grid">
-                <div class="salon-card fade-in delay-1">
+                <div class="salon-card">
                     <h3>Ленинский район</h3>
                     <p class="address">📍 ул. Мичурина, 9 (1 этаж)</p>
                     <p class="schedule">🕘 Пн–Пт: 10:00–19:00, Сб–Вс: 10:00–18:00</p>
@@ -121,7 +190,7 @@
                     </div>
                 </div>
 
-                <div class="salon-card fade-in delay-2">
+                <div class="salon-card">
                     <h3>Железнодорожный район</h3>
                     <p class="address">📍 ул. Калинина, 8 (1 этаж)</p>
                     <p class="schedule">🕘 Пн–Пт: 10:00–19:00, Сб–Вс: 10:00–18:00</p>
@@ -131,7 +200,7 @@
                     </div>
                 </div>
 
-                <div class="salon-card fade-in delay-3">
+                <div class="salon-card">
                     <h3>Кировский район</h3>
                     <p class="address">📍 ул. Академика Павлова, 41 (1 этаж, Магнит)</p>
                     <p class="schedule">🕘 Вт–Пт: 10:00–19:00, Сб: 10:00–18:00</p>
@@ -142,7 +211,7 @@
                     </div>
                 </div>
 
-                <div class="salon-card fade-in delay-1">
+                <div class="salon-card">
                     <h3>Ленинский район</h3>
                     <p class="address">📍 ул. Шевченко, 28а (м-н Черёмушки)</p>
                     <p class="schedule">🕘 Пн–Пт: 10:00–19:00, Сб–Вс: 10:00–18:00</p>
@@ -156,43 +225,58 @@
     </section>
 
     <!-- ===== КАРТА ===== -->
-    <section class="map-section" id="map">
+    <section class="map-section" id="map" aria-labelledby="map-title">
         <div class="container">
             <span class="section-label">Наши салоны на карте</span>
-            <h2 class="section-title">Как нас найти</h2>
+            <h2 class="section-title" id="map-title">Как нас найти</h2>
             <p class="section-sub">Все 4 салона «Мир Очков» в Красноярске</p>
-
             <div class="map-wrapper">
                 <div class="map-placeholder">
                     <p>🗺️ Здесь будет карта с отметками всех 4 салонов</p>
-                    <p class="map-placeholder-hint">
-                        Вставьте код iframe от Яндекс.Карт или Google Maps
-                    </p>
+                    <p class="map-placeholder-hint">Карта будет подключена позже. Адреса и телефоны доступны выше.</p>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- ===== ОТЗЫВЫ ===== -->
-    <section class="reviews" id="reviews">
+    <section class="reviews" id="reviews" aria-labelledby="reviews-title">
         <div class="container">
             <span class="section-label">Клиенты говорят</span>
-            <h2 class="section-title">Реальные отзывы</h2>
-
+            <h2 class="section-title" id="reviews-title">Реальные отзывы</h2>
             <div class="reviews-grid">
-                <div class="review-card fade-in delay-1">
+                <div class="review-card">
                     <div class="stars">★★★★★</div>
-                    <p>«Очень, очень хорошая оптика!!! Мне всегда тяжело подобрать очки, есть минус на оба глаза и астегматизм, проблема была в том что вечером ни чего не вижу за рулём. Обратилась сюда по совету мамы. Целый час девушка мне подбирала, все учитывала, плюс я ещё попросила антиблик стекла, предупредили что через неделю будут готовы, сделали через 4 дня! Я очень довольна! За рулём теперь вообще дискомфорта нет! Советую, и ещё раз советую!»</p>
+                    <p>
+                        «Очень, очень хорошая оптика!!! Мне всегда тяжело подобрать
+                        очки, есть минус на оба глаза и астегматизм, проблема была
+                        в том что вечером ни чего не вижу за рулём. Обратилась сюда
+                        по совету мамы. Целый час девушка мне подбирала, все
+                        учитывала, плюс я ещё попросила антиблик стекла,
+                        предупредили что через неделю будут готовы, сделали через
+                        4 дня! Я очень довольна! За рулём теперь вообще дискомфорта
+                        нет! Советую, и ещё раз советую!»
+                    </p>
                     <div class="author">Марина Марина</div>
                 </div>
-                <div class="review-card fade-in delay-2">
+
+                <div class="review-card">
                     <div class="stars">★★★★★</div>
-                    <p>«Вежливые, приветливые продавцы. Всегда помогут сделать правильный выбор. Всей семьей покупаем очки только в этой оптике!!!»</p>
+                    <p>
+                        «Вежливые, приветливые продавцы. Всегда помогут сделать
+                        правильный выбор. Всей семьей покупаем очки только в этой
+                        оптике!!!»
+                    </p>
                     <div class="author">Мария Р.</div>
                 </div>
-                <div class="review-card fade-in delay-3">
+
+                <div class="review-card">
                     <div class="stars">★★★★★</div>
-                    <p>«Спасибо огромное мастеру за работу и за то, что смог поместить стёкла в мою оправу! Поистине золотые руки 🙏🏼 Благодарю также женщину, работницу оптики, за консультацию»</p>
+                    <p>
+                        «Спасибо огромное мастеру за работу и за то, что смог
+                        поместить стёкла в мою оправу! Поистине золотые руки 🙏🏼
+                        Благодарю также женщину, работницу оптики, за консультацию»
+                    </p>
                     <div class="author">Полина Волкова</div>
                 </div>
             </div>
@@ -203,36 +287,51 @@
     <section class="contact" id="contact">
         <div class="container">
             <div class="contact-grid">
-                <div class="contact-info fade-in">
+                <div class="contact-info">
                     <span class="section-label">Связь</span>
                     <h3>Запишитесь на приём</h3>
-                    <p class="contact-phone">📞 +7-923-355-05-28</p>
-                    <p class="contact-phone">✉️ mir-ochkov@mail.ru</p>
+                    <p class="contact-phone">
+                        📞 <a href="tel:+79233550528">+7-923-355-05-28</a>
+                    </p>
+                    <p class="contact-phone">
+                        ✉️ <a href="mailto:mir-ochkov@mail.ru">mir-ochkov@mail.ru</a>
+                    </p>
                     <p class="contact-note">Проверка зрения бесплатно при заказе очков</p>
                 </div>
 
-                <form class="contact-form fade-in delay-2" id="orderForm">
+                <form class="contact-form" id="orderForm">
                     <h3>Записаться на приём</h3>
-                    
+
                     <label for="formName">Ваше имя</label>
-                    <input type="text" id="formName" placeholder="Иван Иванов" required />
-                    
+                    <input type="text" id="formName" placeholder="Иван Иванов"
+                           autocomplete="name" required />
+
                     <label for="formPhone">Телефон</label>
-                    <input type="tel" id="formPhone" placeholder="+7 (___) ___-__-__" required />
-                    
+                    <input type="tel" id="formPhone" placeholder="+7 (___) ___-__-__"
+                           inputmode="tel" autocomplete="tel" maxlength="18" required />
+
                     <label for="formSalon">Выберите салон</label>
-                    <select id="formSalon">
+                    <select id="formSalon" required>
+                        <option value="" disabled selected>Выберите салон</option>
                         <option value="lenin1">Ленинский р-н, ул. Мичурина, 9</option>
                         <option value="railway">Железнодорожный р-н, ул. Калинина, 8</option>
                         <option value="kirov">Кировский р-н, ул. Академика Павлова, 41</option>
                         <option value="lenin2">Ленинский р-н, ул. Шевченко, 28а</option>
                     </select>
-                    
+
                     <label for="formComment">Комментарий</label>
                     <textarea id="formComment" placeholder="Пожелания, вопросы, особенности"></textarea>
-                    
-                    <button type="submit" class="btn btn-primary">Отправить заявку</button>
+
+                    <button type="submit" class="btn btn-primary" id="submitBtn">
+                        Отправить заявку
+                    </button>
+
                     <p class="form-note">Мы перезвоним в течение 15 минут</p>
+                    <p class="form-status" id="formStatus" role="status" aria-live="polite"></p>
+                    <p class="privacy-note">
+                        Нажимая «Отправить заявку», вы соглашаетесь на обработку
+                        предоставленных данных для связи с вами.
+                    </p>
                 </form>
             </div>
         </div>
@@ -269,6 +368,6 @@
         </div>
     </footer>
 
-    <script src="script.js"></script>
+    <script src="script.js" defer></script>
 </body>
 </html>
