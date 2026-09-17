@@ -387,21 +387,16 @@ textarea:focus-visible {
     box-shadow: var(--shadow);
     border: 1px solid var(--border);
     background: var(--surface);
-    min-height: 450px;
+    line-height: 0; /* убирает лишний отступ под iframe */
 }
-.map-placeholder {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+
+.map-wrapper iframe {
+    display: block;
+    width: 100%;
     height: 450px;
-    background: var(--bg);
-    color: var(--text-secondary);
-    font-size: 18px;
-    padding: 20px;
-    text-align: center;
+    border: none;
 }
-.map-placeholder-hint { margin-top: 8px; font-size: 14px; }
+
 
 /* ---------- Отзывы ---------- */
 .reviews-grid {
@@ -655,40 +650,86 @@ footer {
 }
 
 @media (max-width: 600px) {
-    body { padding-top: 62px; }
-    .container { padding: 0 18px; }
+    body {
+        padding-top: 62px;
+    }
+    
+    /* ===== СЕТКИ ===== */
+    .services-grid {
+        grid-template-columns: 1fr;
+    }
+    .salons-grid {
+        grid-template-columns: 1fr;
+    }
+    .footer-grid {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+    .hero-stats {
+        flex-direction: column;
+        gap: 12px;
+    }
 
-    .services-grid,
-    .salons-grid,
-    .footer-grid { grid-template-columns: 1fr; }
-    .footer-grid { text-align: center; }
+    /* ===== ГЕРОЙ ===== */
+    .hero h1 {
+        font-size: 28px;
+    }
+    .hero {
+        padding: 50px 0 30px;
+    }
+    .hero-icon {
+        font-size: 60px;
+    }
+    .hero-buttons {
+        flex-direction: column;
+    }
+    .hero-buttons .btn {
+        width: 100%;
+        text-align: center;
+    }
 
-    .hero-stats { flex-direction: column; gap: 12px; }
-    .hero h1    { font-size: 28px; }
-    .hero       { padding: 50px 0 30px; }
-
+    /* ===== СЕКЦИИ ===== */
     .services,
     .salons,
     .reviews,
     .contact,
-    .map-section { padding: 40px 0; }
+    .map-section {
+        padding: 40px 0;
+    }
+    .section-title {
+        font-size: 28px;
+    }
 
-    .contact-grid { gap: 30px; }
-    .contact-form { padding: 24px; }
-    .section-title { font-size: 28px; }
+    /* ===== КОНТАКТЫ ===== */
+    .contact-grid {
+        gap: 30px;
+    }
+    .contact-form {
+        padding: 24px;
+    }
 
-    .hero-icon { font-size: 60px; min-height: 100px; }
-
+    /* ===== НАВИГАЦИЯ ===== */
     .nav-links {
         width: 280px;
         left: -300px;
         padding: 70px 24px 24px;
     }
+    .navbar .logo {
+        font-size: 20px;
+    }
+    .navbar .logo .logo-icon {
+        font-size: 24px;
+    }
 
-    .hero-buttons { flex-direction: column; }
-    .hero-buttons .btn { width: 100%; text-align: center; }
+    /* ===== КАРТА ===== */
+    .map-wrapper iframe {
+        height: 350px;
+    }
 
-    .map-placeholder { height: 300px; font-size: 14px; }
+    /* ===== ФУТЕР ===== */
+    .footer-logo {
+        justify-content: center;
+    }
 }
 
 @media (prefers-reduced-motion: reduce) {
