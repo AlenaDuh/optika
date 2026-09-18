@@ -4,27 +4,33 @@
 
 /* ---------- Переменные ---------- */
 :root {
-    --bg: #f8f6f0;
+    --bg: #f5f8fa;
     --surface: #ffffff;
-    --primary: #f5b342;
-    --primary-dark: #e09e2f;
-    --primary-light: #fff3d6;
+    --primary: #2fa8a0;
+    --primary-dark: #1f8880;
+    --primary-light: #e0f4f2;
     --text: #1a1a1a;
     --text-secondary: #555555;
-    --border: #e5e0d6;
+    --border: #dde5e8;
+
+    --accent-blue: #2b6cb0;
+    --accent-teal: #38b2ac;
+    --accent-green: #48bb78;
+
+    --brand-gradient: linear-gradient(90deg, #2b6cb0 0%, #38b2ac 50%, #48bb78 100%);
+    --brand-gradient-hover: linear-gradient(90deg, #1f5a94 0%, #2a8f8a 50%, #3a9e63 100%);
+
     --shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
     --shadow-hover: 0 8px 40px rgba(0, 0, 0, 0.12);
+
     --radius: 16px;
     --transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 /* ---------- Сброс ---------- */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
+* { margin: 0; padding: 0; box-sizing: border-box; }
 html { scroll-behavior: smooth; }
+
 body {
     font-family: 'Inter', sans-serif;
     background: var(--bg);
@@ -32,11 +38,33 @@ body {
     line-height: 1.6;
     padding-top: 72px;
 }
+
 .container {
     max-width: 1140px;
     margin: 0 auto;
     padding: 0 24px;
 }
+
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+    outline: 3px solid rgba(56, 178, 172, 0.55);
+    outline-offset: 3px;
+}
+
+.navbar a,
+.btn,
+.burger { -webkit-tap-highlight-color: transparent; }
+
+/* ---------- Базовые стили для SVG и img ---------- */
+svg {
+    display: inline-block;
+    vertical-align: middle;
+    flex-shrink: 0;
+}
+img { max-width: 100%; display: block; }
 
 /* ---------- Навигация ---------- */
 .navbar {
@@ -48,9 +76,10 @@ body {
     backdrop-filter: blur(12px);
     border-bottom: 3px solid var(--primary);
     z-index: 1000;
-    padding: 14px 0;
+    padding: 10px 0;
     box-shadow: 0 2px 20px rgba(0, 0, 0, 0.06);
 }
+
 .navbar .container {
     display: flex;
     justify-content: space-between;
@@ -61,18 +90,35 @@ body {
 
 /* ---------- Логотип ---------- */
 .logo {
-    font-size: 26px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    text-decoration: none;
+    flex-shrink: 0;
+    white-space: nowrap;
+}
+
+.logo-img {
+    height: 40px;
+    width: auto;
+    flex-shrink: 0;
+    object-fit: contain;
+}
+
+.logo-text {
+    font-size: 22px;
     font-weight: 800;
     letter-spacing: -0.5px;
     color: var(--text);
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    white-space: nowrap;
-    flex-shrink: 0;
 }
-.logo .logo-icon { font-size: 30px; }
-.logo span { color: var(--primary); }
+
+.logo-text span {
+    background: var(--brand-gradient);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+}
 
 /* ---------- Меню ---------- */
 .nav-links {
@@ -82,6 +128,7 @@ body {
     align-items: center;
     margin-left: auto;
 }
+
 .nav-links a {
     color: var(--text-secondary);
     text-decoration: none;
@@ -91,7 +138,9 @@ body {
     position: relative;
     padding: 4px 0;
 }
+
 .nav-links a:hover { color: var(--text); }
+
 .nav-links a::after {
     content: '';
     position: absolute;
@@ -103,6 +152,7 @@ body {
     transition: var(--transition);
     border-radius: 2px;
 }
+
 .nav-links a:hover::after { width: 100%; }
 
 /* ---------- Правая часть навигации ---------- */
@@ -112,24 +162,35 @@ body {
     gap: 12px;
     flex-shrink: 0;
 }
+
 .desktop-phone { display: inline-block; }
 .mobile-phone  { display: none; }
+
 .nav-phone {
-    color: var(--text);
+    color: white;
     font-weight: 700;
     text-decoration: none;
-    background: var(--primary);
+    background: var(--brand-gradient);
     padding: 10px 24px;
     border-radius: 40px;
     font-size: 14px;
     transition: var(--transition);
-    box-shadow: 0 2px 10px rgba(245, 179, 66, 0.2);
+    box-shadow: 0 2px 10px rgba(56, 178, 172, 0.2);
     white-space: nowrap;
 }
+
 .nav-phone:hover {
-    background: var(--primary-dark);
+    background: var(--brand-gradient-hover);
     transform: scale(1.03);
-    box-shadow: 0 6px 20px rgba(245, 179, 66, 0.35);
+    box-shadow: 0 6px 20px rgba(56, 178, 172, 0.35);
+}
+
+.nav-phone svg,
+.nav-phone-mobile svg {
+    width: 16px;
+    height: 16px;
+    margin-right: 6px;
+    vertical-align: -3px;
 }
 
 /* ---------- Бургер ---------- */
@@ -144,6 +205,7 @@ body {
     z-index: 1001;
     transition: var(--transition);
 }
+
 .burger span {
     display: block;
     width: 28px;
@@ -153,6 +215,7 @@ body {
     transition: var(--transition);
     transform-origin: center;
 }
+
 .burger.active span:nth-child(1) { transform: rotate(45deg) translate(5px, 6px); }
 .burger.active span:nth-child(2) { opacity: 0; }
 .burger.active span:nth-child(3) { transform: rotate(-45deg) translate(5px, -6px); }
@@ -160,11 +223,12 @@ body {
 /* ---------- Hero ---------- */
 .hero {
     padding: 80px 0 70px;
-    background: linear-gradient(135deg, #ffffff 0%, #fcf9f0 50%, #fff8e7 100%);
+    background: linear-gradient(135deg, #ffffff 0%, #f5fafb 50%, #eef6f8 100%);
     border-bottom: 2px solid var(--border);
     position: relative;
     overflow: hidden;
 }
+
 .hero::before {
     content: '';
     position: absolute;
@@ -172,9 +236,10 @@ body {
     right: -20%;
     width: 600px;
     height: 600px;
-    background: radial-gradient(circle, rgba(245, 179, 66, 0.08) 0%, transparent 70%);
+    background: radial-gradient(circle, rgba(56, 178, 172, 0.08) 0%, transparent 70%);
     border-radius: 50%;
 }
+
 .hero-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -183,13 +248,23 @@ body {
     position: relative;
     z-index: 1;
 }
+
 .hero h1 {
     font-size: 52px;
     font-weight: 800;
     line-height: 1.1;
     letter-spacing: -1px;
 }
-.hero h1 .highlight { color: var(--primary); position: relative; }
+
+.hero h1 .highlight {
+    background: var(--brand-gradient);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+    position: relative;
+}
+
 .hero h1 .highlight::after {
     content: '';
     position: absolute;
@@ -197,35 +272,49 @@ body {
     left: 0;
     width: 100%;
     height: 8px;
-    background: rgba(245, 179, 66, 0.2);
+    background: linear-gradient(90deg,
+        rgba(43, 108, 176, 0.15),
+        rgba(56, 178, 172, 0.15),
+        rgba(72, 187, 120, 0.15));
     border-radius: 4px;
 }
+
 .hero p {
     font-size: 18px;
     color: var(--text-secondary);
     margin: 24px 0 32px;
     max-width: 480px;
 }
+
 .hero-icon {
     display: flex;
     justify-content: center;
     align-items: center;
     min-height: 260px;
-    font-size: 140px;
-    opacity: 0.9;
     user-select: none;
-    filter: drop-shadow(0 20px 40px rgba(0, 0, 0, 0.08));
 }
+
+.hero-logo {
+    width: 100%;
+    max-width: 340px;
+    height: auto;
+    object-fit: contain;
+    filter: drop-shadow(0 20px 40px rgba(0, 0, 0, 0.08));
+    border-radius: 12px;
+}
+
 .hero-buttons {
     display: flex;
     gap: 16px;
     flex-wrap: wrap;
 }
+
 .hero-stats {
     display: flex;
     gap: 40px;
     margin-top: 48px;
 }
+
 .hero-stats strong { font-size: 28px; display: block; color: var(--text); }
 .hero-stats span   { color: var(--text-secondary); font-size: 13px; }
 
@@ -241,40 +330,32 @@ body {
     border: none;
     cursor: pointer;
 }
-.btn-primary { background: var(--text); color: white; }
-.btn-primary:hover {
-    background: #333333;
-    transform: translateY(-2px);
-    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
+
+.btn-primary {
+    background: var(--brand-gradient);
+    color: white;
+    font-weight: 700;
 }
+
+.btn-primary:hover {
+    background: var(--brand-gradient-hover);
+    transform: translateY(-2px);
+    box-shadow: 0 12px 30px rgba(56, 178, 172, 0.25);
+}
+
 .btn-outline {
     background: transparent;
     color: var(--text);
     border: 2px solid var(--border);
 }
+
 .btn-outline:hover {
     border-color: var(--text);
     background: rgba(0, 0, 0, 0.03);
     transform: translateY(-2px);
 }
-.btn:disabled {
-    cursor: wait;
-    opacity: 0.7;
-    transform: none;
-}
 
-/* ---------- Доступность ---------- */
-a:focus-visible,
-button:focus-visible,
-input:focus-visible,
-select:focus-visible,
-textarea:focus-visible {
-    outline: 3px solid rgba(245, 179, 66, 0.55);
-    outline-offset: 3px;
-}
-.navbar a, .btn, .burger {
-    -webkit-tap-highlight-color: transparent;
-}
+.btn:disabled { cursor: wait; opacity: 0.7; transform: none; }
 
 /* ---------- Секции ---------- */
 .services,
@@ -283,6 +364,7 @@ textarea:focus-visible {
     padding: 80px 0;
     border-bottom: 1px solid var(--border);
 }
+
 .section-label {
     text-transform: uppercase;
     font-size: 12px;
@@ -290,11 +372,13 @@ textarea:focus-visible {
     color: var(--primary-dark);
     font-weight: 700;
 }
+
 .section-title {
     font-size: 36px;
     font-weight: 800;
     margin: 8px 0 16px;
 }
+
 .section-sub {
     color: var(--text-secondary);
     max-width: 500px;
@@ -307,6 +391,7 @@ textarea:focus-visible {
     gap: 24px;
     margin-top: 48px;
 }
+
 .service-card {
     background: var(--surface);
     border: 1px solid var(--border);
@@ -317,16 +402,29 @@ textarea:focus-visible {
     box-shadow: var(--shadow);
     height: 100%;
 }
+
 .service-card:hover {
     transform: translateY(-8px);
     border-color: var(--primary);
     box-shadow: var(--shadow-hover);
 }
+
 .service-card .icon {
-    font-size: 40px;
-    margin-bottom: 16px;
     display: block;
+    margin-bottom: 16px;
+    line-height: 0;
 }
+
+.service-card .icon svg {
+    width: 48px;
+    height: 48px;
+}
+
+.icon-eye      svg { color: var(--accent-blue); }
+.icon-glasses  svg { color: var(--accent-teal); }
+.icon-wrench   svg { color: var(--accent-green); }
+.icon-workshop svg { color: var(--primary); }
+
 .service-card h3 { font-size: 18px; margin-bottom: 8px; }
 .service-card p  { color: var(--text-secondary); font-size: 14px; }
 
@@ -336,12 +434,14 @@ textarea:focus-visible {
     background: var(--surface);
     border-bottom: 1px solid var(--border);
 }
+
 .salons-grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 24px;
     margin-top: 48px;
 }
+
 .salon-card {
     background: var(--bg);
     border: 1px solid var(--border);
@@ -351,25 +451,43 @@ textarea:focus-visible {
     box-shadow: var(--shadow);
     height: 100%;
 }
+
 .salon-card:hover {
     transform: translateY(-4px);
     box-shadow: var(--shadow-hover);
     border-color: var(--primary);
 }
+
 .salon-card h3 { font-size: 20px; margin-bottom: 12px; color: var(--text); }
+
 .salon-card .address,
 .salon-card .schedule {
     color: var(--text-secondary);
     font-size: 14px;
     margin-bottom: 6px;
 }
+
+.salon-card .address svg,
+.salon-card .schedule svg,
+.salon-card .phones svg,
+.contact-phone svg {
+    width: 14px;
+    height: 14px;
+    margin-right: 6px;
+    vertical-align: -2px;
+    color: var(--primary);
+}
+
 .salon-card .schedule-warn { color: #b42318; font-weight: 600; }
+.salon-card .schedule-warn svg { color: #b42318; }
+
 .salon-card .phones {
     margin-top: 12px;
     display: flex;
     flex-direction: column;
     gap: 4px;
 }
+
 .salon-card .phones a {
     color: var(--text);
     text-decoration: none;
@@ -377,6 +495,7 @@ textarea:focus-visible {
     font-size: 14px;
     transition: var(--transition);
 }
+
 .salon-card .phones a:hover { color: var(--primary-dark); }
 
 /* ---------- Карта ---------- */
@@ -387,7 +506,7 @@ textarea:focus-visible {
     box-shadow: var(--shadow);
     border: 1px solid var(--border);
     background: var(--surface);
-    line-height: 0; /* убирает лишний отступ под iframe */
+    line-height: 0;
 }
 
 .map-wrapper iframe {
@@ -397,7 +516,6 @@ textarea:focus-visible {
     border: none;
 }
 
-
 /* ---------- Отзывы ---------- */
 .reviews-grid {
     display: grid;
@@ -405,6 +523,7 @@ textarea:focus-visible {
     gap: 24px;
     margin-top: 48px;
 }
+
 .review-card {
     background: var(--surface);
     border: 1px solid var(--border);
@@ -412,11 +531,13 @@ textarea:focus-visible {
     padding: 28px;
     box-shadow: var(--shadow);
 }
+
 .review-card .stars {
     color: var(--primary);
     font-size: 18px;
     letter-spacing: 2px;
 }
+
 .review-card p {
     margin: 12px 0;
     font-style: italic;
@@ -424,32 +545,43 @@ textarea:focus-visible {
     font-size: 14px;
     line-height: 1.7;
 }
+
 .review-card .author { color: var(--text); font-size: 14px; font-weight: 600; }
 
 /* ---------- Контакты ---------- */
 .contact {
     padding: 80px 0;
-    background: linear-gradient(135deg, #ffffff 0%, #fcf9f0 100%);
+    background: linear-gradient(135deg, #ffffff 0%, #f5fafb 100%);
 }
+
 .contact-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 60px;
     align-items: start;
 }
+
 .contact-info h3 { font-size: 28px; margin-bottom: 16px; }
+
 .contact-phone {
     color: var(--text-secondary);
     margin-bottom: 8px;
     font-size: 16px;
 }
-.contact-phone a {
-    color: inherit;
-    text-decoration: none;
-    font-weight: 600;
-}
+
+.contact-phone a { color: inherit; text-decoration: none; font-weight: 600; }
 .contact-phone a:hover { color: var(--primary-dark); }
-.contact-note { margin-top: 20px; color: var(--text-secondary); }
+
+.contact-note {
+    margin-top: 16px;
+    padding: 14px 20px;
+    background: var(--primary-light);
+    border-radius: 12px;
+    border: 1px solid var(--primary);
+    color: var(--text);
+    font-weight: 500;
+    font-size: 14px;
+}
 
 /* ---------- Форма ---------- */
 .contact-form {
@@ -459,7 +591,9 @@ textarea:focus-visible {
     padding: 40px;
     box-shadow: var(--shadow);
 }
+
 .contact-form h3 { margin-bottom: 24px; font-size: 24px; }
+
 .contact-form label {
     display: block;
     font-size: 14px;
@@ -467,6 +601,7 @@ textarea:focus-visible {
     margin-bottom: 6px;
     color: var(--text-secondary);
 }
+
 .contact-form input,
 .contact-form select,
 .contact-form textarea {
@@ -482,31 +617,18 @@ textarea:focus-visible {
     outline: none;
     font-family: inherit;
 }
+
 .contact-form input:focus,
 .contact-form select:focus,
 .contact-form textarea:focus {
     border-color: var(--primary);
-    box-shadow: 0 0 0 3px rgba(245, 179, 66, 0.15);
+    box-shadow: 0 0 0 3px rgba(56, 178, 172, 0.15);
 }
+
 .contact-form textarea { min-height: 100px; resize: vertical; }
 .contact-form .btn { width: 100%; }
-.form-note,
-.privacy-note { color: var(--text-secondary); text-align: center; }
-.form-note { font-size: 12px; margin-top: 12px; }
-.privacy-note {
-    margin-top: 10px;
-    font-size: 11px;
-    line-height: 1.5;
-}
-.form-status {
-    min-height: 24px;
-    margin-top: 12px;
-    font-size: 14px;
-    font-weight: 600;
-    text-align: center;
-}
-.form-status.success { color: #287a43; }
-.form-status.error   { color: #b42318; }
+
+.form-note { color: var(--text-secondary); text-align: center; font-size: 12px; margin-top: 12px; }
 
 /* ---------- Футер ---------- */
 footer {
@@ -515,15 +637,27 @@ footer {
     color: #aaa;
     border-top: 4px solid var(--primary);
 }
+
 .footer-grid {
     display: grid;
     grid-template-columns: 2fr 1fr 1fr;
     gap: 40px;
     margin-bottom: 40px;
 }
-.footer-grid .logo { color: white; }
-.footer-grid .logo span { color: var(--primary); }
+
+.footer-logo { color: white; }
+.footer-logo .logo-text { color: white; }
+.footer-logo .logo-text span {
+    background: var(--brand-gradient);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.footer-sub { margin-top: 12px; color: #aaa; }
+
 .footer-grid h4 { color: white; margin-bottom: 12px; font-size: 16px; }
+
 .footer-grid a {
     display: block;
     color: #aaa;
@@ -532,7 +666,9 @@ footer {
     font-size: 14px;
     transition: var(--transition);
 }
+
 .footer-grid a:hover { color: white; }
+
 .footer-bottom {
     border-top: 1px solid rgba(255, 255, 255, 0.08);
     padding-top: 20px;
@@ -553,6 +689,7 @@ footer {
     pointer-events: none;
     transition: opacity 0.3s ease;
 }
+
 .overlay.active { opacity: 1; pointer-events: all; }
 
 /* ============================================================
@@ -577,10 +714,11 @@ footer {
         position: absolute;
         left: 50%;
         transform: translateX(-50%);
-        font-size: 22px;
         margin: 0;
+        gap: 8px;
     }
-    .navbar .logo .logo-icon { font-size: 26px; }
+    .navbar .logo-img { height: 34px; }
+    .navbar .logo-text { font-size: 18px; }
 
     .nav-links {
         position: fixed;
@@ -600,6 +738,7 @@ footer {
         z-index: 999;
         margin-left: 0;
     }
+
     .nav-links.active { left: 0; }
 
     .nav-links a:not(.nav-phone-mobile) {
@@ -608,6 +747,7 @@ footer {
         width: 100%;
         border-bottom: 1px solid var(--border);
     }
+
     .nav-links a::after { display: none; }
     .nav-links a:hover { color: var(--primary); }
 
@@ -618,6 +758,7 @@ footer {
         border-top: 1px solid var(--border);
         width: 100%;
     }
+
     .nav-phone-mobile {
         display: block;
         width: 100%;
@@ -631,6 +772,7 @@ footer {
         font-weight: 700;
         transition: var(--transition);
     }
+
     .nav-phone-mobile:hover { background: var(--primary-dark); }
 
     .desktop-phone { display: none; }
@@ -646,90 +788,47 @@ footer {
     .footer-grid   { grid-template-columns: 1fr 1fr; }
 
     .hero h1   { font-size: 36px; }
-    .hero-icon { font-size: 80px; min-height: 160px; }
+    .hero-icon { min-height: 160px; }
+    .hero-logo { max-width: 260px; }
 }
 
 @media (max-width: 600px) {
-    body {
-        padding-top: 62px;
-    }
-    
-    /* ===== СЕТКИ ===== */
-    .services-grid {
-        grid-template-columns: 1fr;
-    }
-    .salons-grid {
-        grid-template-columns: 1fr;
-    }
-    .footer-grid {
-        grid-template-columns: 1fr;
-        text-align: center;
-    }
-    .hero-stats {
-        flex-direction: column;
-        gap: 12px;
-    }
+    body { padding-top: 62px; }
 
-    /* ===== ГЕРОЙ ===== */
-    .hero h1 {
-        font-size: 28px;
-    }
-    .hero {
-        padding: 50px 0 30px;
-    }
-    .hero-icon {
-        font-size: 60px;
-    }
-    .hero-buttons {
-        flex-direction: column;
-    }
-    .hero-buttons .btn {
-        width: 100%;
-        text-align: center;
-    }
+    .services-grid { grid-template-columns: 1fr; }
+    .salons-grid   { grid-template-columns: 1fr; }
+    .footer-grid   { grid-template-columns: 1fr; text-align: center; }
 
-    /* ===== СЕКЦИИ ===== */
+    .hero-stats { flex-direction: column; gap: 12px; }
+
+    .hero { padding: 50px 0 30px; }
+    .hero h1 { font-size: 28px; }
+    .hero-logo { max-width: 220px; }
+    .hero-buttons { flex-direction: column; }
+    .hero-buttons .btn { width: 100%; text-align: center; }
+
     .services,
     .salons,
     .reviews,
     .contact,
-    .map-section {
-        padding: 40px 0;
-    }
-    .section-title {
-        font-size: 28px;
-    }
+    .map-section { padding: 40px 0; }
 
-    /* ===== КОНТАКТЫ ===== */
-    .contact-grid {
-        gap: 30px;
-    }
-    .contact-form {
-        padding: 24px;
-    }
+    .section-title { font-size: 28px; }
 
-    /* ===== НАВИГАЦИЯ ===== */
+    .contact-grid  { gap: 30px; }
+    .contact-form  { padding: 24px; }
+
     .nav-links {
         width: 280px;
         left: -300px;
         padding: 70px 24px 24px;
     }
-    .navbar .logo {
-        font-size: 20px;
-    }
-    .navbar .logo .logo-icon {
-        font-size: 24px;
-    }
+    .navbar .logo-img { height: 30px; }
+    .navbar .logo-text { font-size: 16px; }
 
-    /* ===== КАРТА ===== */
-    .map-wrapper iframe {
-        height: 350px;
-    }
+    .map-wrapper iframe { height: 350px; }
 
-    /* ===== ФУТЕР ===== */
-    .footer-logo {
-        justify-content: center;
-    }
+    .footer-logo { justify-content: center; }
 }
 
 @media (prefers-reduced-motion: reduce) {
